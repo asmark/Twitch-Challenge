@@ -45,7 +45,9 @@ Consider the prefix "aaa". We must consider cases:
 * a, followed by a repeated twice (ie. a[aa]rdvark)
 * a is not unecessarily repeated (ie. if AAA were a valid word)
 
-As we proceed down the trie, we simultaneously visit neighbours of "a", "aa", and "aaa". Therefore, the maximum number of states we can currently be in is in the order of the amount of repeated letters. When matching the worst case word of one repeated letter, every iteration we add an additional state to our current states. Therefore in n iterations, we will be n states simultaneously. Given an constant amount of time per state checked, we have the familiar series 1 + 2 + 3 + ... + n = O(n^2) time needed.
+As we proceed down the trie, we simultaneously visit neighbours of "a", "aa", and "aaa". Therefore, the maximum number of states we can currently be in is in the order of the amount of repeated letters. 
+
+Therefore, given a word of length n, the worst-case runtime is when all n letters are the same. After all n iterations, we will be n states simultaneously. Given an constant amount of time per state checked, we have the familiar series 1 + 2 + 3 + ... + n = O(n^2) time needed.
 
 Of course, this is the case with a general dictionary. In reality, english dictionaries do not contain many repeated letters, and so the search domain is pruned; we do not unecessarily visit states that have no valid words.
 

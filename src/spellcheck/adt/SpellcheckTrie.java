@@ -86,7 +86,7 @@ public class SpellcheckTrie {
         int repetitions = 1;
         if (index + 1 < processedWord.length() && Character.valueOf('+').
                 compareTo(Character.valueOf(processedWord.charAt(index + 1))) == 0) {
-            int startIndex = index + 1;
+            int startIndex = index + 2;
             int endIndex = index + 3;
             while (Character.valueOf('+').compareTo(Character.valueOf(processedWord.charAt(endIndex))) != 0) {
                 endIndex++;

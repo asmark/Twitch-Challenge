@@ -8,14 +8,14 @@ http://www.twitch.tv/problems/spellcheck
 
 How to run
 ----------
-To run the spellchecker: `make run`
+To run the spellchecker: `make run`  
 To run the word generator: `python wordgenerator.py [words.txt]`
 
 Dependencies
 ------------
-# python 2.7
-# java 7 (6 should also work)
-# GNU Make 3.81
+* python 2.7
+* java 7 (6 should also work)
+* GNU Make 3.81
 
 Solution description
 --------------------
@@ -41,9 +41,9 @@ Constructing the trie takes linear time and space in the amount of words to cons
 However, the analysis for finding matches is a little trickier.
 As mentioned previously, we must keep track of multiple states at once in the case of repeated letters.
 Consider the prefix "aaa". We must consider cases:
-# a is repeated 3 times (ie. a[aa]ple)
-# a, followed by a repeated twice (ie. a[aa]rdvark)
-# a is not unecessarily repeated (ie. if AAA were a valid word)
+* a is repeated 3 times (ie. a[aa]ple)
+* a, followed by a repeated twice (ie. a[aa]rdvark)
+* a is not unecessarily repeated (ie. if AAA were a valid word)
 As we proceed down the trie, we simultaneously visit neighbours of "a", "aa", and "aaa". Therefore, the maximum number of states we can currently be in is in the order of the amount of repeated letters. When matching the worst case word of one repeated letter, every iteration we add an additional state to our current states. Therefore in n iterations, we will be n states simultaneously. Given an constant amount of time per state checked, we have the familiar series 1 + 2 + 3 + ... + n = O(n^2) time needed.
 
 Of course, this is the case with a general dictionary. In reality, english dictionaries do not contain many repeated letters, and so the search domain is pruned; we do not unecessarily visit states that have no valid words.

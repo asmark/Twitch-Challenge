@@ -42,7 +42,7 @@ public class Main {
         // Also, this is not the correct place to put this function :)
 
         if (candidateWords.isEmpty()) {
-            return "NO SUGGESTIONS";
+            return "NO SUGGESTION";
         } else {
             return candidateWords.get(0);
         }

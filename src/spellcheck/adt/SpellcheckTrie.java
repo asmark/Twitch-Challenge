@@ -84,10 +84,11 @@ public class SpellcheckTrie {
 
     int getNumCharacterRepetitions(String processedWord, int index) {
         int repetitions = 1;
-        if (index + 1 < processedWord.length() && processedWord.charAt(index + 1) == '+') {
+        if (index + 1 < processedWord.length() && Character.valueOf('+').
+                compareTo(Character.valueOf(processedWord.charAt(index + 1))) == 0) {
             int startIndex = index + 1;
             int endIndex = index + 3;
-            while (processedWord.charAt(endIndex) != '+') {
+            while (Character.valueOf('+').compareTo(Character.valueOf(processedWord.charAt(endIndex))) != 0) {
                 endIndex++;
             }
             repetitions = Integer.parseInt(processedWord.substring(startIndex, endIndex));

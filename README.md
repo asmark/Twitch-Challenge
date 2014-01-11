@@ -51,5 +51,9 @@ Therefore, given a word of length n, the worst-case runtime is when all n letter
 
 Of course, this is the case with a general dictionary. In reality, english dictionaries do not contain many repeated letters, and so the search domain is pruned; we do not unecessarily visit states that have no valid words.
 
+Extensibility
+-------------
+This solution can correct more class of problems by adding another rule in the spellcheck.rule package. Special care must be taken, however, to ensure it does not interfere with the processing of other rules. Ordering of rules may matter here, and this is not an ideal solution.
+
 
 

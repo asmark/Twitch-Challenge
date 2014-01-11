@@ -41,7 +41,7 @@ Constructing the trie takes linear time and space in the amount of words to cons
 However, the analysis for finding matches is a little trickier.
 As mentioned previously, we must keep track of multiple states at once in the case of repeated letters.
 Consider the prefix "aaa". We must consider cases:
-* a is repeated 3 times (ie. a[aa]ple)
+* a is repeated 3 times (ie. [aaa]ple)
 * a, followed by a repeated twice (ie. a[aa]rdvark)
 * a is not unecessarily repeated (ie. if AAA were a valid word)
 

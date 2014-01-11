@@ -8,14 +8,8 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        BufferedReader fileReader = new BufferedReader(new FileReader(args[0]));
-        SpellcheckTrie trie = new SpellcheckTrie();
-
-        String word;
-        while ((word = fileReader.readLine()) != null) {
-            trie.insert(word);
-        }
-        fileReader.close();
+        String dictFile = args.length <= 0 || args[0] == null ? "words.txt" : args[0];
+        SpellcheckTrie trie = constructTrie(dictFile);
 
         BufferedReader stdinReader = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
@@ -24,12 +18,22 @@ public class Main {
             if (misspelledWord == null) {
                 break;
             }
-
             List<String> correctWords = trie.findMatches(misspelledWord);
             String result = findBestWord(correctWords, misspelledWord);
             System.out.println(result);
         }
+    }
 
+    private static SpellcheckTrie constructTrie(String dictFile) throws IOException {
+        BufferedReader dictFileReader = new BufferedReader(new FileReader(dictFile));
+        SpellcheckTrie trie = new SpellcheckTrie();
+
+        String word;
+        while ((word = dictFileReader.readLine()) != null) {
+            trie.insert(word);
+        }
+        dictFileReader.close();
+        return trie;
     }
 
     private static String findBestWord(List<String> candidateWords, String misspelledWord) {

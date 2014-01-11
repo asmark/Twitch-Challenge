@@ -3,9 +3,6 @@ package spellcheck.adt;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Asmar on 1/10/14.
- */
 public class SpellcheckTrieNode {
 
     private static final char START_CHAR = '^';

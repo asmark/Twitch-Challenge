@@ -71,7 +71,7 @@ public class SpellcheckTrie {
         return processedWord;
     }
 
-    public Set<SpellcheckTrieNode> descendTrie(Set<SpellcheckTrieNode> nodesToExplore, char c) {
+    private Set<SpellcheckTrieNode> descendTrie(Set<SpellcheckTrieNode> nodesToExplore, char c) {
         Set<SpellcheckTrieNode> newNodesToExplore = new HashSet<SpellcheckTrieNode>();
         for (SpellcheckTrieNode node : nodesToExplore) {
             SpellcheckTrieNode followedNode = node.follow(c);
@@ -82,7 +82,7 @@ public class SpellcheckTrie {
         return newNodesToExplore;
     }
 
-    int getNumCharacterRepetitions(String processedWord, int index) {
+    private int getNumCharacterRepetitions(String processedWord, int index) {
         int repetitions = 1;
         if (index + 1 < processedWord.length() && Character.valueOf('+').
                 compareTo(Character.valueOf(processedWord.charAt(index + 1))) == 0) {

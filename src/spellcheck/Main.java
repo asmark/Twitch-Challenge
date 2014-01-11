@@ -21,6 +21,10 @@ public class Main {
         while (true) {
             System.out.print("> ");
             String misspelledWord = stdinReader.readLine();
+            if (misspelledWord == null) {
+                break;
+            }
+
             List<String> correctWords = trie.findMatches(misspelledWord);
             String result = findBestWord(correctWords, misspelledWord);
             System.out.println(result);

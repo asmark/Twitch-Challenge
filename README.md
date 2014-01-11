@@ -53,7 +53,7 @@ Of course, this is the case with a general dictionary. In reality, english dicti
 
 Extensibility
 -------------
-This solution can correct more class of problems by adding another rule in the spellcheck.rule package. Special care must be taken, however, to ensure it does not interfere with the processing of other rules. Ordering of rules may matter here, and this is not an ideal solution.
+This solution can correct more class of problems by adding another rule in the spellcheck.rule package. Special care must be taken, however, to ensure it does not interfere with the processing of other rules. Ordering of rules may matter here, and so this is not an ideal solution.
 
 
 

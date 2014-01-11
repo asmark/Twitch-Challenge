@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python wordgenerator.py | make run | grep 'NO SUGGESTIONS'

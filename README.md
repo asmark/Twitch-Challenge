@@ -55,5 +55,22 @@ Extensibility
 -------------
 This solution can correct more class of problems by adding another rule in the spellcheck.rule package. Special care must be taken, however, to ensure it does not interfere with the processing of other rules. Ordering of rules may matter here, and so this is not an ideal solution.
 
+Retrospective
+-------------
+I used a non-deterministic finite automata (without epsilon transitions) to model the spellcheck dictionary. When traversing through (incorrectly) repeated letters, this caused the spellechecker to keep track of multiple states at once. This is far from ideal. 
+
+A better approach would be to use a deterministic finite automata. This would cut the traversal runtime to linear in the length of the input, since each state in a DFA is modelled by a group of states in an NFA. The drawbacks are, of course, that the transformation of a NFA->DFA can be exponential in the worst case.
+
+So why did I use an NFA?
+* Less code to write
+* Eaiser to reason about
+* Easier to debug (no transformations between NFA->DFA)
+
+What would we get with a DFA?
+* Linear traversal cost
+* Bloated code-base (NFA->DFA transformation logic)
+* Longer construction time
+
+Fortunately, I have already written a general-purpose NFA and DFA class. Unfortunately, I will not be able to port those over until this school semester is over. For now, this is just another task on my todo list.
 
 
